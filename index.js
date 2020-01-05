@@ -11,6 +11,7 @@ const path = require("path");
 
 const app = express();
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 const port = process.env.PORT || "8000";
 
 /**
@@ -26,7 +27,15 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + '/index.html');
     
   });
+/**
+  app.post('/submit-form', (req, res) => {
+    const score = req.body.score;
+    console.log('Score = ' +  score);
+    //...
 
+    res.sendFile(__dirname + '/index.html');
+  })
+ */
   /**
  * Server Activation
  */
